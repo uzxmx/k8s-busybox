@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.13
+
+script:
+  - make clean
+  - make dist VERSION=$TRAVIS_TAG
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "iQ0pydBceEX6MQlhlMrT+4u1atAEeY4cB/9usz3n2NKJ/OxEv32Me2JTEUqlt3PAg8+dXDqaGXFFW34djUhWWwRD+oH1Mb00fj71d3E8kjKkQSzHsEpXmr4QfgK0fXG6xFMapvoeNljpuTEJMSoHSkNay8K4ZBXMWXSbl/fihb0LgLEWdp3BXLbIo2VEZ66S00/hlUDmi+2nhiiLgitDth52PoHLIvzcJAGyVWBJNNnhw8fX3gBSpJJ61d6KhIkue6VKKoxHGASlAAWCid99lISYs7GUGu1SI3i94IRPXim5AiunOJnzjNqdSSIgyX8WUD0b0kWChDX2waxbxApAsw2jSYfLkW8SKbccEWsc5VSV6lf3KKun4t9WOb5wzlCQ28B9uukkFwKjrORH+B5cJZ/wplXu2WGad+JabW9oINTCkR8i/kdZkmJsp5H12lw8FDrA/XdRpmkTPOqRSu7bwVErOeUWJoaQQDXjcd6Sblz2Ajj/9zSXelI+s7N5JJF9CGxUPdMba/d0TYfCvDbFv/W4CWoDEEp5foZ+KrcQgMe4pXrC5EJZNtXWaDHCS8vQhzfIxaFSg+jM1F+zNb9AiwvMaVAN/NoKQiiECevrCPL+VNsyl5h1gbScfF7UVEQItijUTKeYJT3EYHF3SuatctSLX5LLdc3XEG9Qq+6vUEE="
+  file_glob: true
+  file: _dist/k8s-busybox-*.{gz,zip}
+  skip_cleanup: true
+  on:
+    tags: true
