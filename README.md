@@ -1,5 +1,7 @@
 # k8s-busybox
 
+[![Build Status](https://travis-ci.org/uzxmx/k8s-busybox.svg?branch=master)](https://travis-ci.org/uzxmx/k8s-busybox)
+
 This project provides several tools to help you when using kubernetes cluster. Provided
 tools include as below:
 

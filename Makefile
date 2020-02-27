@@ -1,5 +1,5 @@
 BINDIR      := $(CURDIR)/bin
-DIST_DIRS   := find * -type d -maxdepth 0 -exec
+DIST_DIRS   := find * -maxdepth 0 -type d -exec
 TARGETS     := darwin/amd64 linux/amd64
 
 GOPATH        = $(shell go env GOPATH)
